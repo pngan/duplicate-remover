@@ -64,10 +64,6 @@
 
             </ListView>
 
-
-
-
-            <Button Command="{Binding ShowMessageDialogCommand}" Grid.Row="3" Width="100" HorizontalAlignment="Left">Message</Button>
         <Button Command="{Binding FindDuplicatesCommand}" Grid.Row="3" Width="100" HorizontalAlignment="right">Find Duplicates</Button>
     </Grid>
 </Window>

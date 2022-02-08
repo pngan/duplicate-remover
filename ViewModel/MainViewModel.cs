@@ -14,51 +14,19 @@ namespace ViewModel
     public class MainViewModel : ObservableObject, IMainViewModel
     {
         private readonly IFinderService m_model;
-        private readonly IMessageViewModel m_messageDialogViewModel;
-
-
 
         public ObservableCollection<List<string>> EqualFiles { get; } = new();
 
 
-        public MainViewModel(IFinderService model, IMessageViewModel messageDialogViewModel)
+        public MainViewModel(IFinderService model)
         {
             m_model = model;
-            m_messageDialogViewModel = messageDialogViewModel;
-            m_model.OnGreetingChanged += OnGreetingChanged;
 
             FindDuplicatesCommand = new AsyncRelayCommand (FindDuplicatesAsync);
 
         }
 
-        private void OnGreetingChanged(object sender, GreetingArgs e)
-        {
-            Greeting = e.Greeting;
-        }
-
-        private string m_name;
-        private string m_greeting;
         private bool m_isBusy;
-
-        public string Name
-        {
-            get { return m_name; }
-            set
-            {
-                m_name = value;
-                m_model.SetName(value);
-            }
-        }
-
-        public string Greeting
-        {
-            get { return m_greeting; }
-            set
-            {
-                m_greeting = value;
-                OnPropertyChanged("Greeting");
-            }
-        }
 
 
         public bool IsBusy

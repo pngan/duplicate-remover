@@ -20,10 +20,6 @@ namespace DuplicateRemover
 
         private void RegisterDependencies(ContainerBuilder builder)
         {
-
-            builder.RegisterType<MessageViewModel>().As<IMessageViewModel>().SingleInstance();
-            builder.RegisterType<MessageDialog>();
-
             builder.RegisterType<FinderService>().As<IFinderService>().SingleInstance();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>().SingleInstance();
             builder.RegisterType<MainWindow>();
