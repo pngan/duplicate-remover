@@ -7,7 +7,7 @@ using View;
 
 namespace DuplicateRemover
 {
-    public partial class App : Application
+    public partial class MainApp : Application
     {
         public void ApplicationStartup(object sender, StartupEventArgs e)
         {
@@ -24,7 +24,7 @@ namespace DuplicateRemover
             builder.RegisterType<MessageViewModel>().As<IMessageViewModel>().SingleInstance();
             builder.RegisterType<MessageDialog>();
 
-            builder.RegisterType<MainModel>().As<IMainModel>().SingleInstance();
+            builder.RegisterType<FinderService>().As<IFinderService>().SingleInstance();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>().SingleInstance();
             builder.RegisterType<MainWindow>();
         }

@@ -17,7 +17,7 @@ namespace ViewModel
     public class MessageViewModel : ObservableObject, IMessageViewModel
     {
         private string m_greeting;
-        public MessageViewModel(IMainModel model)
+        public MessageViewModel(IFinderService model)
         {
             _mainModel = model;
 
@@ -31,7 +31,7 @@ namespace ViewModel
             Greeting = e.Greeting;
         }
 
-        private IMainModel _mainModel;
+        private IFinderService _mainModel;
 
         public string Greeting
         {

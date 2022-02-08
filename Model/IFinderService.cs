@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public interface IMainModel
+    public interface IFinderService
     {
         void FindDuplicates();
         void SetName(string name);

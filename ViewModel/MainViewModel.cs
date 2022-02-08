@@ -12,11 +12,11 @@ namespace ViewModel
 
     public class MainViewModel : ObservableObject, IMainViewModel
     {
-        private readonly IMainModel m_model;
+        private readonly IFinderService m_model;
         private readonly IMessageViewModel m_messageDialogViewModel;
 
 
-        public MainViewModel(IMainModel model, IMessageViewModel messageDialogViewModel)
+        public MainViewModel(IFinderService model, IMessageViewModel messageDialogViewModel)
         {
             m_model = model;
             m_messageDialogViewModel = messageDialogViewModel;
@@ -58,7 +58,7 @@ namespace ViewModel
 
         public void Start()
         {
-            m_model.Start();
+            
         }
     }
 }
