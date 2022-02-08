@@ -2,7 +2,7 @@
 {
     public interface IFinderService
     {
-        void FindDuplicates();
+        Task<Dictionary<ulong, List<string>>> FindDuplicatesAsync();
         void SetName(string name);
         event EventHandler<GreetingArgs> OnGreetingChanged;
 

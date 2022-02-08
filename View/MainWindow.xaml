@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
         Title="Duplicate Detector"
-        Width="525"
-        Height="350"
+        Width="1500"
+        Height="700"
         FocusManager.FocusedElement="{Binding ElementName=NameBox}"
         Loaded="MainWindow_OnLoaded"
         d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel,
                                          IsDesignTimeCreatable=True}"
         mc:Ignorable="d">
+
+    
     <Grid Margin="20">
         <Grid.Resources>
             <Style TargetType="TextBox">
@@ -31,8 +33,41 @@
                  Grid.Row="0"
                  Text="{Binding Name,
                                 UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Grid.Row="2" Text="{Binding Greeting}" />
-        <Button Command="{Binding ShowMessageDialogCommand}" Grid.Row="3" Width="100" HorizontalAlignment="Left">Message</Button>
+
+        <ListView Grid.Row="2"  ItemsSource="{Binding EqualFiles}"
+            VirtualizingPanel.IsContainerVirtualizable="True"
+            VirtualizingPanel.IsVirtualizing="True">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListView ItemsSource="{Binding}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Width="100" Stretch="UniformToFill">
+                                            <Image.Source>
+                                                <BitmapImage 
+                                                DecodePixelWidth="100"  
+                                                UriSource="{Binding}" />
+                                            </Image.Source>
+                                        </Image>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+
+
+
+            <Button Command="{Binding ShowMessageDialogCommand}" Grid.Row="3" Width="100" HorizontalAlignment="Left">Message</Button>
         <Button Command="{Binding FindDuplicatesCommand}" Grid.Row="3" Width="100" HorizontalAlignment="right">Find Duplicates</Button>
     </Grid>
 </Window>
