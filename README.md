@@ -1,2 +1,3 @@
 # duplicate-remover
-Tool for finding and removing duplicate files on Windows
+
+A Windows App to find and remove duplicate files.
